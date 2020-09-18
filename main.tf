@@ -11,10 +11,10 @@ provider "azurerm" {
   version = "=2.20.0"
   
   ## add tenant id with variables
-  subscription_id = TF_VAR_ARM_SUBSCRIPTION_ID
-  tenant_id       = TF_VAR_ARM_TENANT_ID 
-  client_secret   = TF_VAR_ARM_CLIENT_SECRET
-  client_id       = TF_VAR_ARM_CLIENT_ID
+  subscription_id = ARM_SUBSCRIPTION_ID
+  tenant_id       = ARM_TENANT_ID 
+  client_secret   = ARM_CLIENT_SECRET
+  client_id       = ARM_CLIENT_ID
   
   features {}
 }
