@@ -77,7 +77,7 @@ resource "azurerm_network_interface" "TF-nic" {
   name                      = "${var.prefix}-TF-nic"
   location                  = var.location
   resource_group_name       = azurerm_resource_group.TerraformAzure.name
-  network_security_group_id = azurerm_network_security_group.TF-sg.id
+  # network_security_group_id = azurerm_network_security_group.TF-sg.id
 
   ip_configuration {
     name                          = "${var.prefix}ipconfig"
