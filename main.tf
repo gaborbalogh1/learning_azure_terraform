@@ -38,7 +38,7 @@ resource "azurerm_subnet" "subnet" {
   address_prefix       = var.subnet_prefix
 }
 
-resource "azurerm_network_security_group" "TF-sg" {
+resource "azurerm_network_security_group" "tf-sg" {
   name                = "${var.prefix}-sg"
   location            = var.location
   resource_group_name = azurerm_resource_group.TerraformAzure.name
@@ -80,8 +80,8 @@ resource "azurerm_network_security_group" "TF-sg" {
   }
 }
 
-resource "azurerm_network_interface" "TF-nic" {
-  name                      = "${var.prefix}-TF-nic"
+resource "azurerm_network_interface" "tf-nic" {
+  name                      = "${var.prefix}-tf-nic"
   location                  = var.location
   resource_group_name       = azurerm_resource_group.TerraformAzure.name
   # network_security_group_id = azurerm_network_security_group.TF-sg.id
@@ -94,16 +94,16 @@ resource "azurerm_network_interface" "TF-nic" {
   }
 }
 
-resource "azurerm_public_ip" "TF-pip" {
+resource "azurerm_public_ip" "tf-pip" {
   name                = "${var.prefix}-ip"
   location            = var.location
   resource_group_name = azurerm_resource_group.TerraformAzure.name
   allocation_method   = "Dynamic"
-  domain_name_label   = "${var.prefix}-TFC"
+  domain_name_label   = "${var.prefix}-tfc"
 }
 
-resource "azurerm_virtual_machine" "TF" {
-  name                = "${var.prefix}-TFC"
+resource "azurerm_virtual_machine" "tf" {
+  name                = "${var.prefix}-tfc"
   location            = var.location
   resource_group_name = azurerm_resource_group.TerraformAzure.name
   vm_size             = var.vm_size
