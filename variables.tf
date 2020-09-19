@@ -5,6 +5,8 @@
 # Here is where we store the default values for all the variables used in our
 
 variable "prefix" {
+  # this is better kept lower case otherwise you may receive an error when you try using it in the public ip
+  # domain_name_label = this can only be lowercase/.
   description = "TerraformManaged"
 }
 
