@@ -35,7 +35,7 @@ resource "azurerm_subnet" "subnet" {
   name                 = "${var.prefix}-subnet"
   virtual_network_name = azurerm_virtual_network.vnet.name
   resource_group_name  = azurerm_resource_group.TerraformAzure.name
-  address_prefix       = var.subnet_prefix
+  address_prefixes       = var.subnet_prefix
 }
 
 resource "azurerm_network_security_group" "tf-sg" {
@@ -118,7 +118,7 @@ resource "azurerm_virtual_machine" "tf" {
   #  version   = var.image_version
   # }
   
-  gallery_image_reference {
+  storage_image_reference {
     offer     = "UbuntuServer"
     publisher = "Canonical"
     sku       = "18.04-LTS"
