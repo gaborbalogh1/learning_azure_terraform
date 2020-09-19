@@ -90,7 +90,7 @@ resource "azurerm_network_interface" "tf-nic" {
     name                          = "${var.prefix}ipconfig"
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.TF-pip.id
+    public_ip_address_id          = azurerm_public_ip.tf-pip.id
   }
 }
 
@@ -108,7 +108,7 @@ resource "azurerm_virtual_machine" "tf" {
   resource_group_name = azurerm_resource_group.TerraformAzure.name
   vm_size             = var.vm_size
 
-  network_interface_ids         = [azurerm_network_interface.TF-nic.id]
+  network_interface_ids         = [azurerm_network_interface.tf-nic.id]
   delete_os_disk_on_termination = "true"
 
   storage_image_reference {
