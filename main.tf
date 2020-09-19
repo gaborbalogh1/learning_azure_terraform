@@ -111,11 +111,18 @@ resource "azurerm_virtual_machine" "tf" {
   network_interface_ids         = [azurerm_network_interface.tf-nic.id]
   delete_os_disk_on_termination = "true"
 
-  storage_image_reference {
-    publisher = var.image_publisher
-    offer     = var.image_offer
-    sku       = var.image_sku
-    version   = var.image_version
+  # storage_image_reference {
+  #  publisher = var.image_publisher
+  #  offer     = var.image_offer
+  #  sku       = var.image_sku
+  #  version   = var.image_version
+  # }
+  
+  gallery_image_reference {
+    offer     = "UbuntuServer"
+    publisher = "Canonical"
+    sku       = "18.04-LTS"
+    version   = "latest"
   }
 
   storage_os_disk {
